@@ -5,19 +5,28 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                echo "Cloning repository..."
+                git 'https://github.com/SayambarRanjeet/aws-devops-production-project.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t devops-project .'
+                sh 'docker build -t devops-project ./app'
             }
         }
 
-        stage('Run Docker Container') {
+        stage('Push to Docker Hub') {
             steps {
-                sh 'docker run -d -p 8081:80 devops-project'
+                sh 'docker tag devops-project sayambarranjeet/devops-project:latest'
+                sh 'docker push sayambarranjeet/devops-project:latest'
+            }
+        }
+
+        stage('Deploy Container') {
+            steps {
+                sh 'docker stop devops-project || true'
+                sh 'docker rm devops-project || true'
+                sh 'docker run -d -p 80:80 --name devops-project sayambarranjeet/devops-project:latest'
             }
         }
 
