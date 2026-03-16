@@ -3,15 +3,21 @@ pipeline {
 
     stages {
 
+        stage('Clone Repository') {
+            steps {
+                echo "Cloning repository..."
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t devops-project .'
             }
         }
 
-        stage('Run Container') {
+        stage('Run Docker Container') {
             steps {
-                sh 'docker run -d -p 80:80 devops-project'
+                sh 'docker run -d -p 8081:80 devops-project'
             }
         }
 
