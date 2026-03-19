@@ -1,4 +1,4 @@
-# 🚀 End-to-End CI/CD Pipeline using GitHub, Jenkins, Docker, AWS EC2 & EKS
+# 🚀 Production-Ready CI/CD Pipeline on AWS using Jenkins, Docker, Kubernetes (EKS)
 
 I designed and implemented a complete DevOps CI/CD pipeline that automates the workflow from code commit to deployment and monitoring.
 
@@ -93,6 +93,16 @@ I designed and implemented a complete DevOps CI/CD pipeline that automates the w
 ✔ Real-time monitoring
 ✔ Email alerting system
 ✔ Zero manual deployment
+
+---
+
+## 📊 Final Result
+
+- Fully automated CI/CD pipeline
+- Zero manual deployment
+- Real-time monitoring using Grafana
+- Alert notifications via Email
+- Scalable deployment using Kubernetes (EKS)
 
 ---
 
